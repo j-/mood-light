@@ -46,6 +46,9 @@
       "error",
       "single"
     ],
+    "react/display-name": [
+      0
+    ],
     "react/no-unescaped-entities": [
       0
     ],
