@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
-import { rainbowMode, Params as RainbowModeParams } from '../modes/rainbow';
+import DisplayRainbow, { Props } from './DisplayRainbow';
+import FillViewport from './FillViewport';
 
-const FullRainbow: React.FC<RainbowModeParams> = (props) => {
-  useEffect(() => rainbowMode(document.documentElement, props), [props]);
-  return null;
-};
+const FullRainbow: React.FC<Props> = (props) => (
+  <FillViewport>
+    <DisplayRainbow {...props} />
+  </FillViewport>
+);
 
 export default FullRainbow;

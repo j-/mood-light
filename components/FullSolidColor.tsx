@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
-import { solidColorMode, Params as SolidColorModeParams } from '../modes/solid-color';
+import DisplaySolidColor, { Props } from './DisplaySolidColor';
+import FillViewport from './FillViewport';
 
-const FullSolidColor: React.FC<SolidColorModeParams> = (props) => {
-  useEffect(() => solidColorMode(document.documentElement, props), [props]);
-  return null;
-};
+const FullSolidColor: React.FC<Props> = (props) => (
+  <FillViewport>
+    <DisplaySolidColor {...props} />
+  </FillViewport>
+);
 
 export default FullSolidColor;

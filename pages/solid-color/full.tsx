@@ -8,7 +8,7 @@ export const DEFAULT_COLOR = '#000000';
 
 const SolidColorFull: React.FC = () => {
   const params = useParams();
-  const color = String(params[PARAM_COLOR]) || DEFAULT_COLOR;
+  const color = String(params[PARAM_COLOR] || '') || DEFAULT_COLOR;
 
   return (
     <>

@@ -2,33 +2,27 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import DisplayRainbow from '../../components/DisplayRainbow';
-import { MAX_STOPS } from '../../modes/rainbow';
 import {
   DEFAULT_ANGLE,
   DEFAULT_LIGHTNESS,
-  DEFAULT_PERIOD,
   DEFAULT_SATURATION,
-  DEFAULT_STOPS,
-  PARAM_ANGLE,
+  DEFAULT_SCALE,
+  DEFAULT_SPEED,
   PARAM_LIGHTNESS,
-  PARAM_PERIOD,
   PARAM_SATURATION,
-  PARAM_STOPS,
+  PARAM_SCALE,
+  PARAM_SPEED,
 } from './full';
 
 const RainbowIndex: React.FC = () => {
   const action = '/rainbow/full';
-  const [period, setPeriod] = useState(DEFAULT_PERIOD);
-  const handleChangePeriod: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPeriod(e.currentTarget.valueAsNumber);
+  const [scale, setScale] = useState(DEFAULT_SCALE);
+  const handleChangeScale: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setScale(e.currentTarget.valueAsNumber);
   };
-  const [stops, setStops] = useState(DEFAULT_STOPS);
-  const handleChangeStops: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setStops(e.currentTarget.valueAsNumber);
-  };
-  const [angle, setAngle] = useState(DEFAULT_ANGLE);
-  const handleChangeAngle: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setAngle(e.currentTarget.value);
+  const [speed, setSpeed] = useState(DEFAULT_SPEED);
+  const handleChangeSpeed: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setSpeed(e.currentTarget.valueAsNumber);
   };
   const [saturation, setSaturation] = useState(DEFAULT_SATURATION);
   const handleChangeSaturation: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -38,7 +32,7 @@ const RainbowIndex: React.FC = () => {
   const handleChangeLightness: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setLightness(e.currentTarget.valueAsNumber);
   };
-  const query = { period, stops, angle, saturation, lightness };
+  const query = { scale, speed, saturation, lightness };
   return (
     <>
       <Head>
@@ -46,39 +40,30 @@ const RainbowIndex: React.FC = () => {
       </Head>
       <form action={action} method="get">
         <div>
-          <label htmlFor="RainbowIndex-period">Period</label><br />
+          <label htmlFor="RainbowIndex-scale">Scale</label><br />
           <input
-            id="RainbowIndex-period"
-            type="number"
-            name={PARAM_PERIOD}
-            value={period}
-            onChange={handleChangePeriod}
-            min={0}
-            step={1_000}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="RainbowIndex-stops">Stops</label><br />
-          <input
-            id="RainbowIndex-stops"
+            id="RainbowIndex-scale"
             type="range"
-            name={PARAM_STOPS}
-            value={stops}
-            onChange={handleChangeStops}
-            min={1}
-            max={MAX_STOPS}
+            name={PARAM_SCALE}
+            value={scale}
+            onChange={handleChangeScale}
+            min={0.2}
+            max={10}
+            step={0.1}
           />
         </div>
 
         <div>
-          <label htmlFor="RainbowIndex-angle">Angle</label><br />
+          <label htmlFor="RainbowIndex-speed">Speed</label><br />
           <input
-            id="RainbowIndex-angle"
-            type="string"
-            name={PARAM_ANGLE}
-            value={angle}
-            onChange={handleChangeAngle}
+            id="RainbowIndex-speed"
+            type="range"
+            name={PARAM_SPEED}
+            value={speed}
+            onChange={handleChangeSpeed}
+            min={1}
+            max={100}
+            step={1}
           />
         </div>
 
@@ -112,9 +97,9 @@ const RainbowIndex: React.FC = () => {
 
         <div style={{ width: '20em', height: '20em' }}>
           <DisplayRainbow
-            period={period}
-            stops={stops}
-            angle={angle}
+            scale={scale}
+            speed={speed}
+            angle={DEFAULT_ANGLE}
             saturation={saturation}
             lightness={lightness}
           />
