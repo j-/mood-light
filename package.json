@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "bootstrap": "^5.0.1",
     "next": "10.2.3",
     "querystring": "^0.2.1",
     "react": "17.0.2",

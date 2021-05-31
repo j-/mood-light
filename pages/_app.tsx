@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import '../styles/globals.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => (
   <Component {...pageProps} />
