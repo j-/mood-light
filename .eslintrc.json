@@ -20,7 +20,8 @@
   "plugins": [
     "@typescript-eslint",
     "json-format",
-    "react"
+    "react",
+    "react-hooks"
   ],
   "settings": {
     "react": {
@@ -58,6 +59,8 @@
     "react/react-in-jsx-scope": [
       0
     ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "semi": [
       "error",
       "always"
