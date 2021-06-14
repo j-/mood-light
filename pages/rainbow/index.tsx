@@ -34,28 +34,30 @@ const RainbowIndex: React.FC = () => {
   };
   const query = { scale, speed, saturation, lightness };
   return (
-    <>
+    <div className="container my-5">
       <Head>
         <title>Rainbow | Mood Light</title>
       </Head>
       <form action={action} method="get">
-        <div>
-          <label htmlFor="RainbowIndex-scale">Scale</label><br />
+        <div className="form-group">
+          <label className="form-label" htmlFor="RainbowIndex-scale">Scale</label><br />
           <input
+            className="form-range"
             id="RainbowIndex-scale"
             type="range"
             name={PARAM_SCALE}
             value={scale}
             onChange={handleChangeScale}
-            min={0.2}
+            min={1}
             max={10}
             step={0.1}
           />
         </div>
 
-        <div>
-          <label htmlFor="RainbowIndex-speed">Speed</label><br />
+        <div className="form-group">
+          <label className="form-label" htmlFor="RainbowIndex-speed">Speed</label><br />
           <input
+            className="form-range"
             id="RainbowIndex-speed"
             type="range"
             name={PARAM_SPEED}
@@ -67,9 +69,10 @@ const RainbowIndex: React.FC = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="RainbowIndex-saturation">Saturation</label><br />
+        <div className="form-group">
+          <label className="form-label" htmlFor="RainbowIndex-saturation">Saturation</label><br />
           <input
+            className="form-range"
             id="RainbowIndex-saturation"
             type="range"
             name={PARAM_SATURATION}
@@ -81,9 +84,10 @@ const RainbowIndex: React.FC = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="RainbowIndex-lightness">Lightness</label><br />
+        <div className="form-group">
+          <label className="form-label" htmlFor="RainbowIndex-lightness">Lightness</label><br />
           <input
+            className="form-range"
             id="RainbowIndex-lightness"
             type="range"
             name={PARAM_LIGHTNESS}
@@ -95,7 +99,7 @@ const RainbowIndex: React.FC = () => {
           />
         </div>
 
-        <div style={{ width: '20em', height: '20em' }}>
+        <div className="card card-body" style={{ width: '20em', height: '20em' }}>
           <DisplayRainbow
             scale={scale}
             speed={speed}
@@ -126,7 +130,7 @@ const RainbowIndex: React.FC = () => {
           </li>
         </ul>
       </form>
-    </>
+    </div>
   );
 };
 
