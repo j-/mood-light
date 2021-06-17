@@ -1,6 +1,9 @@
 const { parse } = require('url');
 const { homepage } = require('./package.json');
 
+const { pathname } = parse(homepage);
+
 module.exports = {
-  basePath: parse(homepage).pathname,
+  assetPrefix: pathname,
+  basePath: pathname,
 };
